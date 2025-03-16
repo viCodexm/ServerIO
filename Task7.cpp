@@ -3,6 +3,7 @@
 #include <iostream>
 #include <numeric>
 #include <fstream>
+#include <iomanip>
 #include <vector>
 #include <assert.h>
 #include <set>
@@ -95,11 +96,12 @@ void PrintLatencyStats(vector<int> latencies, int MAX_WORKLOAD) {
 	float average = accumulate(all(latencies), 0.0) / size;
 	float median = (size & 1) ? latencies[size / 2] : ((float)latencies[size / 2 - 1] + latencies[size / 2]) / 2.0;
 
+	int sw = 5;
 	cout << "N: " << MAX_WORKLOAD << "\n"
-		<< "Median: " << median << "\n"
-		<< "Average: " << average << "\n"
-		<< "Min: " << latencies.front() << "\n"
-		<< "Max: " << latencies.back() << "\n\n";
+		<< "Median:   " << setw(sw) << median << " usec\n"
+		<< "Average:  " << setw(sw) << average << " usec\n"
+		<< "Min:      " << setw(sw) << latencies.front() << " usec\n"
+		<< "Max:      " << setw(sw) << latencies.back() << " usec\n\n";
 }
 
 void PrintProcessorState(Processor& processor) {
