@@ -10,3 +10,6 @@ Request structure and everything else read in *track7-task.pdf*
 
 I used AVL tree to handle memory occupancy by WRITE operations.  
 Hope you like it.
+
+## Output
+![out_image](https://github.com/viCodexm/ServerIO/blob/master/output.png)
